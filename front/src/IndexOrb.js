@@ -3,8 +3,6 @@ import * as THREE from "three"
 import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils"
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import indexOrbBack from './media/video/indexOrbBack.mp4'
-//import * as tx from "threex.domevents"
- 
  
 let controls, scene;
  
@@ -55,15 +53,38 @@ class IndexOrb extends Component{
                 mesh.position.z = vertex.z
             
                 scene.add(mesh)
-/*
-                domEvents.addEventListener(mesh, 'click', (e) =>{
-                    console.log('box clicked!')
-                }, false)
-    */
+
+                mesh.callback = () => {
+                    console.log('clicked')
+                }
             }
     
         }
     
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+        
+        function onDocumentMouseDown( event ) {
+        
+            event.preventDefault();
+        
+            mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+            mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+        
+            raycaster.setFromCamera( mouse, camera );
+        
+            var intersects = raycaster.intersectObjects( scene.children ); 
+        
+            if ( intersects.length > 0 ) {
+        
+                intersects[0].object.callback();
+        
+            }
+        
+        }
+        
+        window.addEventListener('click', onDocumentMouseDown, false);
+
         addCubes(positionAttribute)
         
         renderer.setSize( window.innerWidth, window.innerHeight );
@@ -90,6 +111,7 @@ class IndexOrb extends Component{
         animate();
     
     }
+    
 
  
     render() {
