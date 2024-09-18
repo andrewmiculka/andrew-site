@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'mottelnight';
+    src: url('../../assets/fonts/mottelnight.otf');
+}
+
+body {
+    margin: 0;
+}
+
+.app {
+    &__sky {
+        background-image: url('../../assets/images/sky/red-clouds.png');
+        background-size: cover;
+        -webkit-mask-image: transparent url("../../assets/images/sky/noise-mask.png") 0 0;
+        mask-image: transparent url("../../assets/images/sky/noise-mask.png") 0 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        font-family: mottelnight;
+        font-size: clamp(1.6rem, 1vw + 2.1rem, 3.2rem);
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+        }
+        @supports (height: 100dvh) {
+            height: 100dvh;
+        }
+
+        &__name {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            perspective: 80px;
+
+            &__text, &::after {
+                color: #fff;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0;
+                scale: 0.7 1.6;
+                inset-block-start: 1em;
+                transform: rotateX(-8deg);
+            }
+
+            &__text {
+                margin: 0;
+                color: #CEEC97;
+                position: absolute;
+                z-index: 1;
+                text-shadow: #7D2E68 0 0 12px;
+            }
+
+            &::after {
+                display: block;
+                position: relative;
+                content: attr(arial-label);
+                filter: blur(1px) contrast(3);
+                text-shadow: 0px 3px 9px #e46e6e, 0px 8px 12px #9e7639;
+                mix-blend-mode: hard-light;
+            }
+            &::before {
+                content: attr(arial-label);
+                display: flex;
+                position: absolute;
+                inset-block-start: 2.2em;
+                filter: blur(0.065em) contrast(5);
+                text-shadow: 0px 0.1em 0.13em #b08747, 0px 0.5em 0.16em #5539b7;
+                text-transform: uppercase;
+                color: transparent;
+                background-clip: text;
+                background-size: 95% 100%;
+                background-image: linear-gradient(
+                    90deg,
+                    rgba(91, 75, 128, 1) 6%,
+                    rgba(203, 30, 49, 1) 29%,
+                    rgba(231, 146, 49, 1) 53%,
+                    rgba(236, 17, 26, 1) 75%,
+                    rgba(115, 91, 133, 1) 94%
+                );
+                transform-style: preserve-3d;
+                transform: rotateX(58deg);
+                mix-blend-mode: difference;
+                z-index: 0;
+            }
+        }
+    }
+}
+
+
+
+//#e29679
+//#CEEC97
+//#7D2E68
+//#251351
+
+
+
+
