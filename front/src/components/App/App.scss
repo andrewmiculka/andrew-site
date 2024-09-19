@@ -13,6 +13,7 @@ body {
         background-size: cover;
         -webkit-mask-image: transparent url("../../assets/images/sky/noise-mask.png") 0 0;
         mask-image: transparent url("../../assets/images/sky/noise-mask.png") 0 0;
+        position: relative;
     }
 
     &__header {
@@ -20,7 +21,7 @@ body {
         justify-content: center;
         align-items: baseline;
         width: 100vw;
-        height: 100vh;
+        height: 1000px;
         overflow: hidden;
         font-family: mottelnight;
         font-size: clamp(1.6rem, 1vw + 2.1rem, 3.2rem);
@@ -29,9 +30,6 @@ body {
             content: "";
             position: absolute;
             inset: 0;
-        }
-        @supports (height: 100dvh) {
-            height: 100dvh;
         }
 
         &__name {
@@ -91,16 +89,10 @@ body {
                 z-index: 0;
             }
         }
+
+        &__desert {
+            position: absolute;
+            bottom: 0;
+        }
     }
 }
-
-
-
-//#e29679
-//#CEEC97
-//#7D2E68
-//#251351
-
-
-
-
