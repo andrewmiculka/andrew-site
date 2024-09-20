@@ -76,7 +76,7 @@ useGLTF.preload(brainModel);
 
 export default function Brain() {
     return (
-        <Canvas className='brain__canvas' camera={{ position: [700, 10, 20], fov: 9 }}>
+        <Canvas camera={{ position: [900, 200, 0], fov: 11 }}>
             <ambientLight intensity={Math.PI / 2} />
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
             <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />

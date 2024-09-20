@@ -14,6 +14,7 @@ body {
         -webkit-mask-image: transparent url("../../assets/images/sky/noise-mask.png") 0 0;
         mask-image: transparent url("../../assets/images/sky/noise-mask.png") 0 0;
         position: relative;
+        overflow: hidden;
     }
 
     &__header {
@@ -89,10 +90,21 @@ body {
                 z-index: 0;
             }
         }
+    }
 
-        &__desert {
-            position: absolute;
-            bottom: 0;
-        }
+    &__desert {
+        position: absolute;
+        width: 100vw;
+        bottom: 0;
+    }
+
+    &__model-container {
+        min-width: 500px;
+        height: 100vh;
+        position: absolute;
+        bottom: -20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
     }
 }

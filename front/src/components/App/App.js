@@ -11,7 +11,9 @@ export default function App() {
                 </h1>
             </div>
             <img className='app__desert' src={desertImage} />
-            <Brain />
+            <div className='app__model-container'>
+                <Brain />
+            </div>
         </section>
     )
 }
