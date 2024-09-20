@@ -5,6 +5,7 @@
   "dependencies": {
     "@react-three/drei": "^9.112.0",
     "@react-three/fiber": "^8.17.7",
+    "@react-three/postprocessing": "^2.16.2",
     "axios": "^0.25.0",
     "expo-gl": "^14.0.2",
     "google": "^2.1.0",
